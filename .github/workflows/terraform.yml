@@ -18,11 +18,13 @@ jobs:
       with:
         terraform_version: 1.1.0
 
-    - name: Change directory to where the Terraform config is located
-      run: cd ./make_txt
+    - name: Change directory to make_txt
+      run: cd make_txt
 
     - name: Terraform Init
       run: terraform init
+      working-directory: make_txt
 
     - name: Terraform Apply
       run: terraform apply -auto-approve
+      working-directory: make_txt
